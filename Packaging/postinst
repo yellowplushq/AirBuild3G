@@ -1,0 +1,57 @@
+#!/bin/sh
+
+APP=/Applications/AirBuild3G.app
+BIN=$APP/AirBuild3G
+HELPER=$APP/airbuildhelper
+PREFS=com.apple.airbuild.oss.plist
+
+# AirBuild runs as mobile, like any other app. The helper beside it is the one
+# setuid binary: it raises its own uid on the first line of main() and does one
+# command before exiting. Both bits matter — a helper that is not 4755 leaves
+# the app unable to install anything, and an app that is 4755 is SIGKILLed by
+# SpringBoard before it draws.
+if [ -f "$HELPER" ]; then
+	chown root:wheel "$HELPER"
+	chmod 4755 "$HELPER"
+fi
+if [ -f "$BIN" ]; then
+	chown root:wheel "$BIN"
+	chmod 0755 "$BIN"
+fi
+
+# Versions before this one installed a 0755 launch script as CFBundleExecutable
+# and the real Mach-O beside it, setuid root. dpkg removes a file the new
+# package does not ship, but a leftover 4755 binary is worth being sure about.
+rm -f "$APP/AirBuild3G_"
+
+# Settings written while the app was root are in root's home, which mobile
+# cannot even read. Carry them over once, and only when mobile has none.
+if [ -f "/var/root/Library/Preferences/$PREFS" ] && \
+   [ ! -f "/var/mobile/Library/Preferences/$PREFS" ]; then
+	cp "/var/root/Library/Preferences/$PREFS" "/var/mobile/Library/Preferences/$PREFS" && \
+		chown mobile:mobile "/var/mobile/Library/Preferences/$PREFS"
+fi
+
+if [ -x /usr/bin/uicache ]; then
+	/bin/su mobile -c /usr/bin/uicache
+fi
+
+# A UIKitApplication job can outlive the process that registered it: the entry
+# stays in launchd with no pid, the bootstrap name stays taken, and every
+# launch after that exits before it draws anything. It looks exactly like the
+# app crashing on open, and it leaves no crash report, because nothing
+# crashed. Reinstalling is what a person tries first, so make reinstalling the
+# cure.
+#
+# Shell builtins and launchctl only. This package does not depend on the
+# payload, so awk, sed and grep may not be here yet.
+if [ -x /bin/launchctl ]; then
+	/bin/launchctl list 2>/dev/null | while read -r pid status label; do
+		case "$label" in
+			UIKitApplication:com.apple.airbuild.oss\[*)
+				/bin/launchctl remove "$label" 2>/dev/null || true ;;
+		esac
+	done
+fi
+
+exit 0

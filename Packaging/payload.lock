@@ -1,0 +1,61 @@
+# AirBuild bootstrap payload — pinned, in install order.
+# Regenerate with: make payload-lock   (tools/fetch_payload.py --refresh)
+# group	name	version	optional	minFirmware	maxFirmware	archs	url	sha256	size
+base	lzma	4.32.7-5	1			arm	http://apt.saurik.com/debs/lzma_4.32.7-5_iphoneos-arm.deb	eeb6f7a7859d3f5233bc422d01a54fbdde48490be438131ccbd14df4f24998e8	94200
+base	gettext	0.17-7	1			arm	http://apt.saurik.com/debs/gettext_0.17-7_iphoneos-arm.deb	bb58396c9323b3d72e4526d9e1266c453a3000a0b0c6b12aff61b602e451427a	768352
+base	gnupg	1.4.8-4	1			arm	http://apt.saurik.com/debs/gnupg_1.4.8-4_iphoneos-arm.deb	9ead71f65ad62e95b31cc821dd6e7b6a3dbd930a7a49e96f280a2988288f5187	470686
+base	wget	1.16-4	1			arm	http://apt.saurik.com/debs/wget_1.16-4_iphoneos-arm.deb	e35a50a6e4d9be59c46b822062c2aead1fe48512bb2fd4b6c8e646b8de08bd64	210290
+base	curl	7.33.0-9	1			arm	http://apt.saurik.com/debs/curl_7.33.0-9_iphoneos-arm.deb	1e10da5c5835e319f482d05c8ad9f76a6869b3e52d360231e1958c4ab6edf3d3	275848
+base	openssh	6.7p1-13	1			arm	http://apt.saurik.com/debs/openssh_6.7p1-13_iphoneos-arm.deb	ff4eb2a1e4453051e52ba56a71c3d4f56d00c1e83095653647a7a4f49b4c3b1f	587678
+base	pam-modules	36.1-5	1			arm	http://apt.saurik.com/debs/pam-modules_36.1-5_iphoneos-arm.deb	c72d01a5b48b9d1ae91cbbed1e6d1b071ab4a5f806cc6f2f0f7edb889682640a	5518
+base	pam	32.1-4	1			arm	http://apt.saurik.com/debs/pam_32.1-4_iphoneos-arm.deb	5480e9721aec54d3e2c67b07cd676218947daa9d2120570a2bd243b4a0b86533	54922
+base	uikittools	1.1.12	1		8.3	armv6	http://apt.saurik.com/debs/uikittools_1.1.12_iphoneos-arm.deb	6c8d484763f0fd83c70d9bd660d2a0daca6175b6898a624a3ca256f08d9399e0	31968
+base	apt7-key	0.7.25.3-3	1			-	http://apt.saurik.com/debs/apt7-key_0.7.25.3-3_iphoneos-arm.deb	5f96dcc9778aea3d5f0a02a035f14426d257c2ffe328984c8226b48ae03b77ff	2962
+base	apt7-lib	0.7.25.3-16	1			arm	http://apt.saurik.com/debs/apt7-lib_0.7.25.3-16_iphoneos-arm.deb	dc31276fb9c912c0b731f69abc49d29f5489bfc1f002a03014ca3d055183c985	501632
+base	apt7	0.7.25.3-9	1			arm	http://apt.saurik.com/debs/apt7_0.7.25.3-9_iphoneos-arm.deb	09e9b0dba087ee93385b8591f3d2e0005d78187e95d8633525fd92cf045f69ab	268210
+base	berkeleydb	4.6.21-5	1			arm	http://apt.saurik.com/debs/berkeleydb_4.6.21-5_iphoneos-arm.deb	6754bcc64405a837c900040420838378d81e9e1df8ea70ae50ed4f91a33d8971	483432
+base	dpkg	1.18.10-12	1			arm	http://apt.saurik.com/debs/dpkg_1.18.10-12_iphoneos-arm.deb	87482e0c005a152f269f5c78a753ff514db5736b579cf870bd7dcba96f1463c2	422468
+base	profile.d	0-2	1			-	http://apt.saurik.com/debs/profile.d_0-2_iphoneos-arm.deb	170b0a7bfdebb0b263e047ff72527df1d37cd86f7a06e915bf69088b1cff9d75	928
+base	firmware-sbin	0-1	1			-	http://apt.saurik.com/debs/firmware-sbin_0-1_iphoneos-arm.deb	17c2a22ee7e46d6d261967e4a75ba3f89062ca5f8f27f6bcaa870706c25e378e	1106
+base	base	1-4	1			-	http://apt.saurik.com/debs/base_1-4_iphoneos-arm.deb	447b0251ce391afdd70224402c07d0976f50b9f9fbc7f71258cdcd9683e5685d	1800
+core	openssl	0.9.8zg-13	1			arm	http://apt.saurik.com/debs/openssl_0.9.8zg-13_iphoneos-arm.deb	0e57f4b5968fc32c1fb56c1361d163a1ffdcda9173145551aff839cfc19be664	1031128
+core	uuid	1.6.0-2p	1			arm	http://apt.saurik.com/debs/uuid_1.6.0-2p_iphoneos-arm.deb	e4dc2f6aad2ed7ea08ad8f9862220f716a137c3dd887c21741b68c042b5b7151	38868
+core	ncurses	5.7-15	0			arm	http://apt.saurik.com/debs/ncurses_5.7-15_iphoneos-arm.deb	d8fa54475605a6c48c3b1647e936da4b11b5029890174c8cb19cc99b6216b3da	335922
+core	readline	6.0-8	0			arm	http://apt.saurik.com/debs/readline_6.0-8_iphoneos-arm.deb	bc26a670d3e0987085b6296f4f94f60c540c2e0e77f52e637aee7b452d9d18c0	103884
+core	coreutils-bin	8.12-9	0			arm	http://apt.saurik.com/debs/coreutils-bin_8.12-9_iphoneos-arm.deb	9ebee84e65b1a3ccf76190286e24ca8b80081ba7b2deda7d31a6122d744292e2	736480
+core	coreutils	8.12-13	0			arm	http://apt.saurik.com/debs/coreutils_8.12-13_iphoneos-arm.deb	fe1966e5f72064c8a0dbe0a00591f7be0803d36194aed1e03bd7c959b1043247	633090
+core	findutils	4.2.33-7	0			arm	http://apt.saurik.com/debs/findutils_4.2.33-7_iphoneos-arm.deb	6f0154ab3a0d8a04a128163c7ef49f0d425e1225f176fa16eca72a36492c48d0	157872
+core	diffutils	2.8.1-6	0			arm	http://apt.saurik.com/debs/diffutils_2.8.1-6_iphoneos-arm.deb	308f3835cf81a3c519eaa89d5b8f8c6bfbbab03ab2fc486e8a9beac129ecdfb0	92388
+core	gawk	3.1.6-2p	0			arm	http://apt.saurik.com/debs/gawk_3.1.6-2p_iphoneos-arm.deb	856e60fdf335e3b096b7b2cf63a362a5377bb80d39bd21ba677bb04dca2b851a	424026
+core	sed	4.1.5-8	0			arm	http://apt.saurik.com/debs/sed_4.1.5-8_iphoneos-arm.deb	60c88d55b75517d1673980819a5b95dc5787c089f9951d9232048e8ff289acf7	73272
+core	grep	2.5.4-3	0			arm	http://apt.saurik.com/debs/grep_2.5.4-3_iphoneos-arm.deb	d518772e85b0c2438371913de18678b60fc8c5f999aa3e16ed639b05245cf618	84338
+core	gzip	1.6-7	0			arm	http://apt.saurik.com/debs/gzip_1.6-7_iphoneos-arm.deb	78a687909cbef8e67c2f1e706160aff67cab52d4409f21399208cd7cc84254bf	97818
+core	bzip2	1.0.5-8	0			arm	http://apt.saurik.com/debs/bzip2_1.0.5-8_iphoneos-arm.deb	ad0cb4b6333a32423bafbac36da54f149dbe395f1083a1bdeaded46fa545e7cc	23772
+core	tar	1.29-10	0			arm	http://apt.saurik.com/debs/tar_1.29-10_iphoneos-arm.deb	aab3c8563228b46e354eaffcead7eefe79d197a370d590952f37c6e99181941e	270662
+core	patch	2.5.4-3p	0			arm	http://apt.saurik.com/debs/patch_2.5.4-3p_iphoneos-arm.deb	92107eb53c409d1ae54dfb9d4c12327cecbaf52c4561a021933bf334583dedc0	56524
+core	unzip	5.52-6	1			arm	http://apt.saurik.com/debs/unzip_5.52-6_iphoneos-arm.deb	04329d078f3394dbb72abe9f19c893a178ecc22704342efbedf0c9021a9cbdf8	95822
+core	less	418-3	1			arm	http://apt.saurik.com/debs/less_418-3_iphoneos-arm.deb	5f5548ca4c5345db5fd7e703a4b50aa8725480216bfda740c045b923c1475abd	69864
+core	adv-cmds	119-6	1			arm	http://apt.saurik.com/debs/adv-cmds_119-6_iphoneos-arm.deb	9724d43c8c55a1f1024dd7a365767d40e44222dbb9c6ca6e5c982d72dd5296c7	62804
+core	file-cmds	220.7-3	1			arm	http://apt.saurik.com/debs/file-cmds_220.7-3_iphoneos-arm.deb	80f8889db3bd710b06d161b53d09c84e9f287d6f2a149f4df5331e8696c81c46	57908
+core	basic-cmds	48-2p	1			arm	http://apt.saurik.com/debs/basic-cmds_48-2p_iphoneos-arm.deb	41afe335a0cadd76a9d2e08677a898d77da5eadf22b6d33a2e40190699779a92	12760
+core	shell-cmds	118-7	1			arm	http://apt.saurik.com/debs/shell-cmds_118-7_iphoneos-arm.deb	d5a2d17f76eb8d133d712401204da4f281127a9b929433f02b5d9541a64f7dd9	10900
+core	system-cmds	433.8-14	1			arm	http://apt.saurik.com/debs/system-cmds_433.8-14_iphoneos-arm.deb	33f5bf0ad1360c5a5134d95cb329fe80b30738caee064b613a5101d141afdbe9	84630
+core	network-cmds	307.0.1-6	1			arm	http://apt.saurik.com/debs/network-cmds_307.0.1-6_iphoneos-arm.deb	43764a100f9ae677ab1005c62e9199f42cc8a899951672a32604313fa5750c78	189564
+core	darwintools	1-5	1			arm	http://apt.saurik.com/debs/darwintools_1-5_iphoneos-arm.deb	e188cb79f4065207463d1fab1ac69fb1be66d78c91df52c2149a97bb5bd24474	5674
+core	debianutils	3.4.3ubuntu1-2	1			arm	http://apt.saurik.com/debs/debianutils_3.4.3ubuntu1-2_iphoneos-arm.deb	6ffd768f1612fc07afb98a9c2750cef10388c17c90ee721d64e08e9d7b95e75a	6054
+core	bash	4.0.44-16	1			arm	http://apt.saurik.com/debs/bash_4.0.44-16_iphoneos-arm.deb	f66313093e9ccadd856491aba8dbda0dd58a336663d1555641e4cf8c58010bef	314702
+tls	com.skyglow.tlsfix	1.1	0			arm64/armv6/armv7	https://github.com/nfzerox/TLSFix/releases/download/1.1/com.skyglow.tlsfix_1.1.deb	2ab67fb3adeafe25bf12bd8502287e55294374a5e06366a22d0a0faf96d864e0	3311252
+build	make	3.81-2p	0			arm	http://apt.saurik.com/debs/make_3.81-2p_iphoneos-arm.deb	f06f7bf99494051c74c41f1fd231179cb68870a49205c3589afa46c0f6cab7d6	102266
+build	expat	2.0.1-3	1			arm	http://apt.saurik.com/debs/expat_2.0.1-3_iphoneos-arm.deb	9c187fd9bf69e217faec8bcb4f98df32c35c64bd4f9a7e348041e69cc53957b8	69300
+build	git	2.8.1-5	1			arm	http://apt.saurik.com/debs/git_2.8.1-5_iphoneos-arm.deb	9356d45144672ce51d555292f3395fe3cbf31333cfb70723a33abab9f950ff8b	2719904
+build	rsync	3.0.5-3	1			arm	http://apt.saurik.com/debs/rsync_3.0.5-3_iphoneos-arm.deb	311dc02aaf5cbbe83a9866b7fdc20c21cf785f4a4c570c65b5a9bed1e381d52a	206344
+compiler	csu	232-2	0			armv6	http://apt.saurik.com/debs/csu_232-2_iphoneos-arm.deb	1262fc70cf2119ec4315688d94524ea1fae1c76bccaebf86869a51bb1202db47	2688
+compiler	libgcc	4.2-20080410-1-6	0			armv6	http://apt.saurik.com/debs/libgcc_4.2-20080410-1-6_iphoneos-arm.deb	42042123df4cc83846ef30b08dcf3013162689e403700c594f9150fba38e7209	25736
+compiler	odcctools	286-8	0			arm	http://apt.saurik.com/debs/odcctools_286-8_iphoneos-arm.deb	6a88b5a7eb244ea9e02dc7793282ff4c030b56ed65bd794dcd28883f42e0a306	1092318
+compiler	iphone-gcc	4.2-20080604-1-8	0			arm	http://apt.saurik.com/debs/iphone-gcc_4.2-20080604-1-8_iphoneos-arm.deb	8df7cd966a335534da45150f8d339d35afed58461b5063a9e500f1b94433636c	31519904
+compiler	ldid	610-5	0			arm	http://apt.saurik.com/debs/ldid_610-5_iphoneos-arm.deb	9330a1de783cccce2b66d1c0b4ca9c649c5664847533990132389bd53b93ce53	13804
+clang	org.coolstar.ld64	274.2	1	5.0		arm64/armv7	http://apt.thebigboss.org/repofiles/cydia/debs2.0/ld64_274.2.deb	dccc86ea4fbda4bf2c9a267257617088fc5f57925313549cb20947daa82f613c	1518226
+clang	org.coolstar.cctools	895	1			arm64/armv7	http://apt.thebigboss.org/repofiles/cydia/debs2.0/cctools_895.deb	09debe36e1d3655a8504492d3a3b949a622291f5d9ae781089e1264123f88e24	1288458
+clang	org.coolstar.llvm-clang32	3.7.1-2	1	5.0		armv7	http://apt.thebigboss.org/repofiles/cydia/debs2.0/llvm-clang32_3.7.1-2.deb	5039cdce59d916fd7d1072ea96d16344962dfbe52f008d8b7cd4e8ccc3c71bf0	31191920
+clang	org.coolstar.llvm-clang	3.7.1-1	1	5.0	9.0	-	http://apt.thebigboss.org/repofiles/cydia/debs2.0/llvm-clang_3.7.1-1.deb	fd85c989a76c2f3862ff2ea8358fab0817070355e927d2a9c83f21c9d428d5e2	828
+clang	ldid	1:1.2.1	1			armv6	http://apt.saurik.com/debs/ldid_1:1.2.1_iphoneos-arm.deb	778301af4f6a6f0fc2c5f05314cc8e36075466ab67059f5c1e6198d36cf8dcd3	46666

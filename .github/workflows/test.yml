@@ -1,0 +1,17 @@
+name: test
+
+# Host-side only. These compile with the Mac's own clang against macOS
+# Foundation, so they need no legacy SDK, no Homebrew and no secrets — which
+# is what makes them worth running on every push. Building the app itself
+# needs the iOS 4.1 SDK, and building the packages needs that plus a network;
+# both are in INSTALL.md, where a person or an agent runs them once.
+on:
+  push:
+  pull_request:
+
+jobs:
+  test:
+    runs-on: macos-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: make test

@@ -1,0 +1,11 @@
+Package: com.apple.airbuild.oss.bootstrap6
+Name: AirBuild Build Environment (iOS 6)
+Version: 1.0.0
+Architecture: iphoneos-arm
+Description: CoolStar's clang, ld64, cctools, ldid and the iPhoneOS 4.1 SDK headers and link stubs for armv7. About 48 MB; unpacks into /var/airbuild/bootstrap and installs nothing by itself — open AirBuild and go to Settings > Environment.
+Maintainer: AirBuild
+Author: AirBuild
+Section: Development
+Depends: firmware (>= 5.0)
+Conflicts: com.apple.airbuild.oss.bootstrap4, com.apple.airbuild.bootstrap6, com.apple.airbuild.bootstrap4, com.apple.airbuild.bootstrap
+Replaces: com.apple.airbuild.oss.bootstrap4, com.apple.airbuild.bootstrap6, com.apple.airbuild.bootstrap4, com.apple.airbuild.bootstrap

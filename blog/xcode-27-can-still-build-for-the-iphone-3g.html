@@ -1,0 +1,500 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The First App Store, Reimagined with AI Coding.</title>
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' width='256' height='256' viewBox='-64 -64 384 384' fill='none'><circle cx='128' cy='128' r='192' fill='%23fafafa'/><path d='M89.5996 0C103.041 0 109.762 0.000398636 114.896 2.61621C119.411 4.91717 123.083 8.5886 125.384 13.1045C128 18.2384 128 24.9592 128 38.4004V55.7365C128 55.882 128.118 56 128.263 56C128.396 56 128.508 55.9001 128.525 55.7683C132.565 24.3101 159.443 0 192 0C227.346 0 256 28.6538 256 64C256 96.4664 231.825 123.285 200.494 127.439C200.213 127.477 200 127.716 200 128C200 128.283 200.213 128.522 200.494 128.56C231.825 132.714 256 159.534 256 192C256 227.346 227.346 256 192 256C159.533 256 132.714 231.825 128.56 200.494C128.522 200.213 128.283 200 128 200C127.717 200 127.478 200.213 127.44 200.494C123.286 231.825 96.4666 256 64 256C28.6538 256 0 227.346 0 192C0 159.443 24.3101 132.565 55.7683 128.525C55.9001 128.508 56 128.396 56 128.263C56 128.118 55.882 128 55.7365 128H38.4004C24.9592 128 18.2384 128 13.1045 125.384C8.5886 123.083 4.91717 119.411 2.61621 114.896C0.000398636 109.762 0 103.041 0 89.5996V38.4004C0 24.9592 0.000398636 18.2384 2.61621 13.1045C4.91717 8.5886 8.5886 4.91717 13.1045 2.61621C18.2384 0.000398636 24.9592 0 38.4004 0H89.5996ZM112 80C100.799 80 95.1982 79.9998 90.9199 82.1797C87.1568 84.0971 84.0971 87.1568 82.1797 90.9199C79.9998 95.1982 80 100.799 80 112V144C80 155.201 79.9998 160.802 82.1797 165.08C84.0971 168.843 87.1568 171.903 90.9199 173.82C95.1982 176 100.799 176 112 176H144C155.201 176 160.802 176 165.08 173.82C168.843 171.903 171.903 168.843 173.82 165.08C176 160.802 176 155.201 176 144V112C176 100.799 176 95.1982 173.82 90.9199C171.903 87.1568 168.843 84.0971 165.08 82.1797C160.802 79.9998 155.201 80 144 80H112Z' fill='black'/></svg>">
+<meta name="description" content="The iPhone 3G arrived with the first App Store. AirBuild3G lets you build a new app for it, on the phone itself, with a coding model.">
+<meta property="og:title" content="The First App Store, Reimagined with AI Coding.">
+<meta property="og:description" content="The iPhone 3G arrived with the first App Store. AirBuild3G lets you build a new app for it, on the phone itself, with a coding model.">
+<meta property="og:type" content="article">
+<style>
+:root {
+ color-scheme:light;
+ --font-sans:"Helvetica Neue","PingFang SC",sans-serif;
+ --font-serif:Charter,"Iowan Old Style","Songti SC",serif;
+ --font-mono:Menlo,Consolas,monospace;
+ --color-background:#faf9f5; --color-surface:#faf9f5; --color-background-secondary:#f0eee6;
+ --color-ink:#191918; --color-primary:#292925; --color-secondary:#77766d;
+ --color-tertiary:#c9c6bb; --color-separator:#d8d5cb;
+ --color-link:#278eff; --color-accent:#278eff;
+}
+* { box-sizing:border-box; }
+html { scroll-padding-top:40px; }
+body { margin:0; background:var(--color-background); color:var(--color-primary); font-family:var(--font-sans); -webkit-font-smoothing:antialiased; }
+[hidden] { display:none!important; }
+a { color:inherit; text-decoration-thickness:1px; text-underline-offset:3px; }
+a:hover { color:var(--color-link); }
+:focus-visible { outline:2px solid var(--color-link); outline-offset:5px; }
+::selection { background:#dedbca; }
+.site-header { max-width:1240px; margin:auto; padding:30px 48px; display:flex; justify-content:space-between; align-items:center; }
+.site-header a { text-decoration:none; }
+.brand { display:flex; gap:8px; align-items:center; font-size:21px; font-weight:600; letter-spacing:-.6px; }
+.brand svg { width:22px; height:22px; }
+.back { font-size:13px; }
+.page { max-width:1144px; margin:0 auto; padding:0 32px 100px; }
+.article-cover { display:grid; grid-template-columns:220px minmax(0,1fr); column-gap:54px; padding:64px 0 74px; }
+.cover-category { grid-column:1; grid-row:1; margin:9px 0 0; font-size:14px; font-weight:600; line-height:1.5; }
+.page-title { grid-column:2; grid-row:1; color:var(--color-ink); margin:0 0 56px; max-width:790px; font-size:clamp(42px,5vw,64px); font-weight:600; letter-spacing:-.04em; line-height:1.09; text-wrap:balance; }
+.page-title:lang(zh) { font-size:clamp(38px,4.6vw,58px); line-height:1.22; letter-spacing:-.045em; }
+.cover-divider { grid-column:1/-1; height:1px; background:#8d8b81; margin-bottom:26px; }
+.cover-meta { grid-column:1; grid-row:3; font-size:13px; line-height:1.8; }
+.lang-switch { display:flex; gap:15px; margin-top:20px; }
+.lang-switch button { border:0; border-bottom:1px solid transparent; padding:0 0 2px; background:none; font:inherit; font-size:12px; color:var(--color-secondary); cursor:pointer; }
+.lang-switch button[aria-pressed="true"] { border-bottom-color:currentColor; color:var(--color-ink); }
+.cover-deck { grid-column:2; grid-row:3; margin:0; max-width:740px; font-size:24px; line-height:1.55; letter-spacing:-.015em; text-wrap:pretty; }
+.cover-deck:lang(zh) { font-size:22px; line-height:1.75; }
+.reader-layout { display:grid; grid-template-columns:minmax(0,700px) 180px; gap:72px; max-width:952px; margin:12px auto 0; align-items:start; }
+.article-content { min-width:0; font-family:var(--font-serif); font-size:20px; line-height:1.6; }
+.article-content:lang(zh) { font-size:19px; line-height:1.95; }
+.article-content p { margin:0 0 25px; }
+.article-content h2,.article-content h3 { font-family:var(--font-sans); color:var(--color-ink); }
+.article-content h2 { margin:54px 0 22px; font-size:30px; line-height:1.3; font-weight:600; letter-spacing:-.025em; }
+.article-content h3 { margin:32px 0 15px; font-size:21px; font-weight:600; line-height:1.45; letter-spacing:-.015em; }
+.chapter { scroll-margin-top:36px; }
+.chapter h2:focus { outline:none; }
+.article-content ul,.article-content ol { padding-left:25px; }
+.article-content li { margin:8px 0; }
+.article-content strong { font-weight:600; }
+code { font-family:var(--font-mono); font-size:.75em; background:var(--color-background-secondary); border-radius:3px; padding:2px 4px; overflow-wrap:anywhere; }
+.reading-sidebar { position:sticky; top:40px; padding-left:18px; border-left:1px solid var(--color-separator); font-size:12px; line-height:1.6; }
+.contents-heading { margin:0 0 18px; font-weight:500; color:var(--color-secondary); }
+.reading-sidebar ol { padding:0; margin:0; list-style:none; }
+.reading-sidebar li { margin:0 0 15px; }
+.reading-sidebar a { display:block; text-decoration:none; color:var(--color-secondary); font-weight:400; -webkit-text-stroke:0 currentColor; transition:color .22s ease,-webkit-text-stroke-width .22s ease; }
+.reading-sidebar a:hover,.reading-sidebar a[aria-current] { color:var(--color-link); }
+.reading-sidebar a[aria-current] { -webkit-text-stroke-width:.45px; }
+.reading-progress { position:absolute; top:0; bottom:0; left:-1px; width:2px; background:transparent; overflow:hidden; }
+.reading-progress-fill { display:block; height:100%; background:var(--color-link); transform:scaleY(var(--reading-progress,0)); transform-origin:top; transition:transform .18s linear; }
+@media(prefers-reduced-motion:reduce) { .reading-sidebar a,.reading-progress-fill { transition:none; } }
+.article-end { border-top:1px solid var(--color-separator); margin-top:54px; padding-top:23px; font:14px/1.7 var(--font-sans); }
+@media(min-width:1250px) { .reader-layout { margin-left:124px; } }
+@media(max-width:950px) {
+ .site-header { padding:25px 32px; }.article-cover { grid-template-columns:170px minmax(0,1fr); gap:0 32px; padding-top:45px; }
+ .reader-layout { display:block; max-width:680px; }.reading-sidebar { display:none; }.cover-deck { font-size:21px; }
+}
+@media(max-width:600px) {
+ .site-header { padding:23px 22px; }.brand { font-size:19px; }.back { font-size:12px; }.page { padding-inline:22px; }
+ .article-cover { display:flex; flex-direction:column; padding:34px 0 46px; }.cover-category { margin:0 0 25px; font-size:12px; }
+ .page-title,.page-title:lang(zh) { font-size:39px; line-height:1.2; margin:0 0 28px; }.cover-divider { width:100%; flex:none; margin-bottom:19px; }
+ .cover-meta { display:flex; justify-content:space-between; align-items:center; gap:14px; font-size:12px; margin-bottom:26px; }.lang-switch { margin:0; }
+ .cover-deck,.cover-deck:lang(zh) { font-size:19px; line-height:1.7; }
+ .article-content,.article-content:lang(zh) { font-size:18px; }.article-content h2 { font-size:26px; margin-top:43px; }.article-content h3 { font-size:20px; }
+}
+@media print { .site-header,.reading-sidebar,.lang-switch { display:none; }.reader-layout { display:block; margin:0; max-width:none; }.page { max-width:none; padding:0; }.article-cover { padding-top:0; }.chapter h2 { break-after:avoid; } }
+.cover-date { display:block; margin-top:22px; font-size:13px; font-weight:400; line-height:1.8; }
+.article-cover { padding-bottom:0; }
+.page-title { margin-bottom:40px; }
+.cover-divider { margin-bottom:0; }
+.reader-layout { margin-top:44px; }
+@media(max-width:600px) {
+ .article-cover { padding-bottom:0; }
+ .cover-date { margin-top:12px; font-size:12px; }
+ .page-title { margin-bottom:28px; }
+ .reader-layout { margin-top:32px; }
+}
+/* Monochrome editorial surfaces, with blue reserved for annotations. */
+:root {
+ --color-background:#fff; --color-surface:#fff; --color-background-secondary:#f4f4f5;
+ --color-ink:#101012; --color-primary:#242428; --color-secondary:#74747c;
+ --color-tertiary:#c7c7ce; --color-separator:#e5e5e9;
+ --color-link:#278eff; --color-accent:#278eff;
+ --mark-color:rgba(39,142,255,.8); --diagram-background:#fafafa;
+}
+:root[data-theme="dark"] {
+ color-scheme:dark;
+ --color-background:#111113; --color-surface:#17171a; --color-background-secondary:#222226;
+ --color-ink:#f4f4f5; --color-primary:#dddde1; --color-secondary:#a0a0aa;
+ --color-tertiary:#50505b; --color-separator:#303037;
+ --color-link:#58a6ff; --color-accent:#58a6ff;
+ --mark-color:rgba(88,166,255,.85); --diagram-background:#17171a;
+}
+@media(prefers-color-scheme:dark) {
+ :root:not([data-theme="light"]) {
+  color-scheme:dark;
+  --color-background:#111113; --color-surface:#17171a; --color-background-secondary:#222226;
+  --color-ink:#f4f4f5; --color-primary:#dddde1; --color-secondary:#a0a0aa;
+  --color-tertiary:#50505b; --color-separator:#303037;
+  --color-link:#58a6ff; --color-accent:#58a6ff;
+  --mark-color:rgba(88,166,255,.85); --diagram-background:#17171a;
+ }
+}
+body { background:var(--color-background); }
+::selection { background:rgba(39,142,255,.2); }
+.site-header { gap:22px; }
+.site-header .back { margin-left:auto; color:var(--color-secondary); }
+.brand { color:var(--color-ink); }
+.theme-toggle { display:grid; place-items:center; width:36px; height:36px; flex:none; padding:8px; border:1px solid var(--color-separator); border-radius:50%; background:transparent; color:var(--color-ink); cursor:pointer; transition:border-color .2s,background-color .2s; }
+.theme-toggle:hover { background:var(--color-background-secondary); border-color:var(--color-tertiary); }
+.theme-toggle svg { width:18px; height:18px; fill:none; stroke:currentColor; stroke-width:1.5; stroke-linecap:round; stroke-linejoin:round; }
+.theme-toggle .theme-sun { display:none; }
+:root[data-theme="dark"] .theme-toggle .theme-moon { display:none; }
+:root[data-theme="dark"] .theme-toggle .theme-sun { display:block; }
+.cover-category { color:var(--color-ink); }
+.cover-date { color:var(--color-secondary); }
+.cover-divider { background:var(--color-separator); }
+.page-title { font-weight:600; letter-spacing:-.055em; line-height:1.13; }
+.title-mark { color:inherit; }
+.article-content p { text-wrap:pretty; }
+.article-content h2 { margin-top:66px; margin-bottom:27px; font-size:31px; letter-spacing:-.035em; }
+.editorial-mark {
+ color:var(--color-ink);
+ background-image:linear-gradient(var(--mark-color),var(--mark-color));
+ background-repeat:no-repeat; background-position:left calc(100% - .025em);
+ background-size:100% 1.5px;
+ -webkit-box-decoration-break:clone; box-decoration-break:clone;
+ padding-bottom:.07em;
+}
+.title-mark { background-size:100% 3px; padding-bottom:.015em; background-position:left 97%; }
+.editorial-mark.mark-pending { background-size:0% 1.5px; }
+.title-mark.mark-pending { background-size:0% 3px; }
+.editorial-mark.mark-visible { background-size:100% 1.5px; transition:background-size .85s cubic-bezier(.22,.61,.36,1); }
+.title-mark.mark-visible { background-size:100% 3px; }
+.section-title-mark { position:relative; display:inline; padding-bottom:10px; }
+.section-title-mark::after { content:""; display:block; width:38px; height:2px; background:var(--color-accent); margin-top:14px; transform-origin:left; }
+.section-title-mark.mark-pending::after { transform:scaleX(0); }
+.section-title-mark.mark-visible::after { transform:scaleX(1); transition:transform .6s cubic-bezier(.22,.61,.36,1); }
+.article-content code { color:var(--color-ink); border:1px solid var(--color-separator); padding:2px 5px; border-radius:4px; }
+.reading-sidebar { font-size:12px; }
+.reading-sidebar a { color:var(--color-secondary); }
+.article-end { display:grid; grid-template-columns:1fr auto; align-items:first baseline; column-gap:24px; margin-top:48px; padding-block:24px; }
+.article-end a { justify-self:start; color:var(--color-ink); text-decoration:none; border-bottom:1px solid var(--color-tertiary); padding-bottom:4px; }
+.article-end a:hover { border-color:var(--color-link); }
+.article-end p { margin:0; color:var(--color-ink); font:italic 15px/1.5 var(--font-serif); text-align:right; }
+.article-end time { display:block; margin-top:3px; color:var(--color-secondary); font:12px/1.6 var(--font-sans); }
+@media(max-width:600px) {
+ .site-header { gap:14px; }.theme-toggle { width:32px; height:32px; padding:6px; }
+ .page-title { letter-spacing:-.04em; }
+ .article-content h2 { font-size:26px; margin-top:48px; }
+ .article-end { grid-template-columns:1fr; row-gap:14px; }.article-end p { text-align:left; }
+}
+@media(prefers-reduced-motion:reduce) {
+ .editorial-mark.mark-pending,.editorial-mark.mark-visible { background-size:100% 1.5px; transition:none; }
+ .title-mark.mark-pending,.title-mark.mark-visible { background-size:100% 3px; }
+ .section-title-mark.mark-pending::after,.section-title-mark.mark-visible::after { transform:none; transition:none; }
+ .theme-toggle { transition:none; }
+}
+@media print {
+ :root { --color-background:#fff; --color-primary:#222; --color-ink:#111; --color-surface:#fff; --color-secondary:#666; --color-separator:#ddd; --color-background-secondary:#f4f4f4; --diagram-background:#fff; }
+ .editorial-mark.mark-pending { background-size:100% 1.5px; }.section-title-mark.mark-pending::after { transform:none; }
+}
+
+/* Hand-drawn annotations on a clean, monochrome page. */
+:root {
+ --sketch-line:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 14' preserveAspectRatio='none'%3E%3Cpath d='M3 9C42 3 104 11 196 5' fill='none' stroke='%23278eff' stroke-width='2.8' stroke-linecap='round'/%3E%3Cpath d='M13 12C78 7 127 11 184 8' fill='none' stroke='%23278eff' stroke-opacity='.35' stroke-width='1.5' stroke-linecap='round'/%3E%3C/svg%3E");
+}
+:root[data-theme="dark"] {
+ --sketch-line:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 14' preserveAspectRatio='none'%3E%3Cpath d='M3 9C42 3 104 11 196 5' fill='none' stroke='%2358a6ff' stroke-width='2.8' stroke-linecap='round'/%3E%3Cpath d='M13 12C78 7 127 11 184 8' fill='none' stroke='%2358a6ff' stroke-opacity='.4' stroke-width='1.5' stroke-linecap='round'/%3E%3C/svg%3E");
+}
+.editorial-mark {
+ background-image:var(--sketch-line); background-position:left bottom;
+ background-size:100% .42em; padding-bottom:.16em;
+}
+.editorial-mark.mark-pending { background-size:0% .42em; }
+.editorial-mark.mark-visible { background-size:100% .42em; }
+.title-mark { background-size:100% .23em; padding-bottom:.08em; }
+.title-mark.mark-pending { background-size:0% .23em; }
+.title-mark.mark-visible { background-size:100% .23em; }
+.section-title-mark::after {
+ width:64px; height:9px; margin-top:9px;
+ background:var(--sketch-line) left center / 100% 100% no-repeat;
+ transform:rotate(-2deg);
+}
+.section-title-mark.mark-pending::after { transform:rotate(-2deg) scaleX(0); }
+.section-title-mark.mark-visible::after { transform:rotate(-2deg) scaleX(1); }
+.article-cover { position:relative; }
+.article-cover::after {
+ content:""; position:absolute; width:55px; height:48px; right:5px; top:10px;
+ background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 60 52'%3E%3Cg fill='none' stroke='%23278eff' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M29 5C28 20 25 24 9 26C24 28 28 32 30 47C32 33 35 28 51 26C35 24 32 20 29 5Z'/%3E%3Cpath d='M47 4L46 13M42 8L52 9M5 9L10 14'/%3E%3C/g%3E%3C/svg%3E") center / contain no-repeat;
+ transform:rotate(9deg); pointer-events:none;
+}
+.cover-category::after {
+ content:""; display:block; width:100px; height:48px; margin:18px 0 0 32px;
+ background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 110 55'%3E%3Cpath d='M7 13C16 44 68 48 72 26C76 7 40 10 46 30C52 48 87 29 101 14M86 13L102 12L97 28' fill='none' stroke='%23278eff' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center / contain no-repeat;
+ opacity:.8; pointer-events:none;
+}
+/* Figures are sketched in HTML on dotted paper rather than drawn as SVG, so
+   their text keeps the page's own sizes at any width, and each one restacks
+   by its own width rather than the window's. */
+:root {
+ --sk-shaft:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 14' preserveAspectRatio='none'%3E%3Cpath d='M1 8.5C28 5.5 62 10 99 7' fill='none' stroke='%23000' stroke-width='1.7' stroke-linecap='round' vector-effect='non-scaling-stroke'/%3E%3C/svg%3E");
+ --sk-head:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 10 14'%3E%3Cpath d='M2.5 2.5 9 7 3 11.5' fill='none' stroke='%23000' stroke-width='1.7' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+ --sk-check:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath d='M2.5 8.8C4 10 5 11 6.4 12.6 8.5 9 10.5 6 13.6 3.2' fill='none' stroke='%23000' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+ --sk-cross:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath d='M3.5 3.5C6.5 6.5 9.5 9.8 12.8 12.8M12.6 3.2C9.4 6.4 6.6 9.6 3.4 12.6' fill='none' stroke='%23000' stroke-width='2' stroke-linecap='round'/%3E%3C/svg%3E");
+ --sk-wash:color-mix(in srgb,var(--color-accent) 16%,transparent);
+}
+.sk { margin:44px 0 46px; }
+.sk-paper { container-type:inline-size; padding:38px 26px 30px; border:1px solid var(--color-separator); border-radius:5px 12px 7px 15px / 12px 5px 14px 6px; background:radial-gradient(circle,color-mix(in srgb,var(--color-tertiary) 45%,transparent) .7px,transparent 1.2px) 0 0 / 18px 18px,var(--diagram-background); color:var(--color-primary); font:14px/1.45 var(--font-sans); }
+.sk figcaption { margin-top:14px; color:var(--color-secondary); font:13px/1.65 var(--font-sans); }
+.sk p { margin:0; }
+.sk code { font-size:11px; }
+.sk-steps > li,.sk-card { position:relative; margin:0; padding:17px 13px 14px; border:1.5px solid var(--color-primary); border-radius:255px 15px 225px 15px / 15px 225px 15px 255px; background:var(--color-background); }
+.sk-steps > li:nth-child(even),.sk-card:last-child { border-radius:15px 225px 15px 255px / 255px 15px 225px 15px; }
+.sk .sk-goal { border-color:var(--color-accent); box-shadow:5px 6px 0 var(--sk-wash); }
+.sk-steps strong,.sk-card strong { display:block; color:var(--color-ink); font-size:15px; line-height:1.3; }
+.sk-steps li > span,.sk-card > span { display:block; margin-top:3px; color:var(--color-secondary); font-size:12px; line-height:1.45; }
+ol.sk-steps { display:grid; grid-auto-flow:column; grid-auto-columns:minmax(0,1fr); gap:32px; margin:0; padding:0; list-style:none; counter-reset:sk-step; }
+.sk-steps > li { counter-increment:sk-step; }
+.sk-steps > li::before { content:counter(sk-step); position:absolute; top:-14px; left:11px; display:grid; place-items:center; width:25px; height:25px; border:1.5px solid var(--color-accent); border-radius:50% 44% 56% 47% / 55% 49% 51% 45%; background:var(--color-background); color:var(--color-accent); font:600 12px/1 var(--font-sans); }
+.sk-steps > li + li::after,.sk-wire p:first-child::after,.sk-wire p:last-child::before { content:""; display:block; height:14px; background:var(--color-secondary); -webkit-mask:var(--sk-head) right center / 10px 14px no-repeat,var(--sk-shaft) left center / calc(100% - 1px) 14px no-repeat; mask:var(--sk-head) right center / 10px 14px no-repeat,var(--sk-shaft) left center / calc(100% - 1px) 14px no-repeat; }
+.sk-steps > li + li::after { position:absolute; top:calc(50% - 7px); left:-31px; width:27px; }
+.sk-steps dl { display:grid; grid-template-columns:auto 1fr; gap:1px 12px; margin:12px 0 0; font:12px/1.6 var(--font-mono); }
+.sk-steps dt { color:var(--color-secondary); }
+.sk-steps dd { margin:0; color:var(--color-ink); white-space:nowrap; }
+.sk del { color:var(--color-secondary); text-decoration:none; background:var(--sketch-line) 0 58% / 100% .5em no-repeat; }
+.sk ins { margin-left:5px; color:var(--color-accent); font-weight:600; text-decoration:none; }
+.sk-ok,.sk-bad { display:inline-flex; align-items:center; gap:5px; color:var(--color-ink); font-size:12.5px; font-style:normal; font-weight:600; white-space:nowrap; }
+.sk-ok::before,.sk-bad::before { content:""; flex:none; width:14px; height:14px; background:var(--color-accent); -webkit-mask:var(--sk-check) center / contain no-repeat; mask:var(--sk-check) center / contain no-repeat; }
+.sk-bad::before { background:var(--color-ink); -webkit-mask-image:var(--sk-cross); mask-image:var(--sk-cross); }
+.sk-steps .sk-ok { position:absolute; right:14px; bottom:-14px; padding:3px 10px 3px 8px; border:1.5px solid var(--color-accent); border-radius:12px 4px 10px 5px / 5px 10px 4px 12px; background:var(--color-background); color:var(--color-accent); transform:rotate(-3deg); }
+.sk-vm { --limit:calc(768 / 1152 * 100%); position:relative; font-size:13px; line-height:1.4; }
+.sk-vm::before { content:""; position:absolute; top:0; bottom:28px; left:var(--limit); right:0; border-left:1.5px solid var(--color-ink); background:color-mix(in srgb,var(--color-secondary) 8%,transparent); }
+.sk-vm-top { position:relative; display:grid; grid-template-columns:var(--limit) 1fr; align-items:center; padding:0 0 14px; color:var(--color-secondary); font-size:12px; }
+.sk-vm-top span { padding-right:10px; text-align:right; }
+.sk-vm-top code { justify-self:start; margin-left:8px; white-space:nowrap; overflow-wrap:normal; }
+.sk-vm p { position:relative; display:flex; justify-content:space-between; align-items:baseline; gap:10px; padding-bottom:25px; color:var(--color-secondary); }
+.sk-vm p + p { margin-top:6px; }
+.sk-vm p > span { max-width:calc(var(--limit) - 12px); }
+.sk-vm strong { color:var(--color-ink); font-weight:600; }
+.sk-vm p::after { content:""; position:absolute; left:0; bottom:5px; width:calc(min(var(--end),768) / 1152 * 100%); min-width:5px; height:13px; border:1.5px solid var(--color-accent); border-radius:2px 5px 3px 4px / 4px 3px 5px 2px; background:linear-gradient(var(--sk-wash),var(--sk-wash)),var(--color-background); }
+.sk-vm .sk-over::before { content:""; position:absolute; left:var(--limit); bottom:5px; width:calc((var(--end) - 768) / 1152 * 100%); height:13px; border:1.5px dashed var(--color-secondary); border-left:0; border-radius:0 5px 4px 0; background:repeating-linear-gradient(-45deg,var(--color-tertiary) 0 1px,transparent 1px 5px); }
+.sk.mark-pending .sk-vm p::after,.sk.mark-pending .sk-vm .sk-over::before { clip-path:inset(-2px 100% -2px -2px); }
+.sk.mark-visible .sk-vm p::after { clip-path:inset(-2px); transition:clip-path .8s cubic-bezier(.22,.61,.36,1); }
+.sk.mark-visible .sk-vm .sk-over::before { clip-path:inset(-2px); transition:clip-path .5s cubic-bezier(.22,.61,.36,1) .75s; }
+@media print { .sk.mark-pending .sk-vm p::after,.sk.mark-pending .sk-vm .sk-over::before { clip-path:none; } }
+.sk-vm-axis { position:relative; height:28px; border-top:1px solid var(--color-tertiary); color:var(--color-secondary); font-size:11px; }
+.sk-vm-axis span { position:absolute; top:7px; left:calc(var(--at) / 1152 * 100%); transform:translateX(-50%); white-space:nowrap; }
+.sk-vm-axis span::before { content:""; position:absolute; top:-7px; left:50%; height:4px; border-left:1px solid var(--color-tertiary); }
+.sk-vm-axis span:first-child { transform:none; }
+.sk-vm-axis span:first-child::before { left:0; }
+.sk-loop { display:grid; grid-template-columns:minmax(0,1fr) minmax(64px,.8fr) minmax(0,1.3fr); align-items:center; }
+.sk-card { padding-right:48px; }
+.sk-card small { display:block; margin-bottom:5px; color:var(--color-secondary); font-size:10.5px; font-weight:600; letter-spacing:.08em; text-transform:uppercase; }
+.sk-card code { display:inline-block; margin:6px 3px 0 0; }
+.sk-icon { position:absolute; top:12px; right:12px; width:30px; height:30px; fill:none; stroke:var(--color-accent); stroke-width:2.8; stroke-linecap:round; stroke-linejoin:round; transform:rotate(-6deg); }
+.sk-icon .icon-detail { opacity:.55; }
+.sk-wire { position:relative; display:grid; gap:12px; padding:0 8px; color:var(--color-secondary); font-size:12px; line-height:1.3; text-align:center; }
+.sk-wire::before,.sk-wire::after { content:""; position:absolute; left:50%; height:26px; border-left:1.5px dashed var(--color-tertiary); }
+.sk-wire::before { bottom:100%; }
+.sk-wire::after { top:100%; }
+.sk-wire p:first-child::after,.sk-wire p:last-child::before { margin:4px 0; background:var(--color-accent); }
+.sk-wire p:last-child::before { transform:scaleX(-1); }
+.sk .sk-foot { margin-top:24px; color:var(--color-secondary); font-size:12.5px; text-align:center; }
+.sk-src { position:relative; padding:24px 16px 18px; border:1.5px solid var(--color-primary); border-radius:160px 8px 150px 8px / 8px 150px 8px 160px; background:var(--color-background); }
+.sk-file { position:absolute; top:-13px; left:14px; padding:2px 10px; border:1.5px solid var(--color-primary); border-radius:12px 4px 10px 5px / 5px 10px 4px 12px; background:var(--color-background); color:var(--color-ink); font:11.5px/1.5 var(--font-mono); transform:rotate(-1.5deg); }
+.sk-src pre { margin:0; overflow-x:auto; }
+.sk-src code { display:block; padding:0; border:0; border-radius:0; background:none; color:var(--color-ink); font:12px/1.75 var(--font-mono); white-space:pre; overflow-wrap:normal; tab-size:4; }
+.sk-src i { color:var(--color-secondary); font-style:normal; }
+/* Syntax colours pick their theme from color-scheme, which every theme path sets. Blue stays the annotations'. */
+.sk-src .k { color:light-dark(#c4265e,#f27fae); }
+.sk-src .s { color:light-dark(#2a7336,#86cf94); }
+.sk-src .n,.sk-src .v { color:light-dark(#a35300,#eea764); }
+.sk-src .t { color:light-dark(#0f7470,#6ccdc2); }
+.sk-src .f { color:light-dark(#7445c8,#b9a1f5); }
+.sk-src mark { margin:0 -3px; padding:2px 3px; border-radius:3px 8px 4px 7px / 7px 4px 8px 3px; background:var(--sk-wash); color:inherit; }
+.sk-src mark[data-n]::after,.sk-notes > li::before { display:inline-grid; place-items:center; width:19px; height:19px; border:1.5px solid var(--color-accent); border-radius:50% 44% 56% 47% / 55% 49% 51% 45%; background:var(--color-background); color:var(--color-accent); font:600 10.5px/1 var(--font-sans); }
+.sk-src mark[data-n]::after { content:attr(data-n); margin-left:12px; vertical-align:1px; }
+ol.sk-notes { display:grid; gap:8px; margin:18px 0 0; padding:0; list-style:none; counter-reset:sk-note; font-size:13px; line-height:1.55; }
+.sk-notes > li { position:relative; margin:0; padding-left:30px; counter-increment:sk-note; }
+.sk-notes > li::before { content:counter(sk-note); position:absolute; top:0; left:0; }
+@container (max-width:600px) {
+ ol.sk-steps { grid-auto-flow:row; gap:26px; }
+ .sk-steps > li { display:flex; flex-wrap:wrap; align-items:baseline; column-gap:10px; padding:13px 14px 12px 50px; }
+ .sk-steps > li::before { top:10px; left:12px; }
+ .sk-steps li > span { margin:0; }
+ .sk-steps dl { flex-basis:100%; }
+ .sk-steps > li + li::after { top:-24px; left:13px; width:22px; transform:rotate(90deg); }
+}
+@container (max-width:380px) {
+ .sk-loop { grid-template-columns:minmax(0,1fr); }
+ .sk-wire { grid-template-columns:1fr 1fr; gap:0; padding:12px 0; }
+ .sk-wire::before,.sk-wire::after { display:none; }
+ .sk-wire p { display:flex; align-items:center; gap:4px; }
+ .sk-wire p:first-child { justify-content:flex-end; }
+ .sk-wire p:first-child::after,.sk-wire p:last-child::before { flex:none; width:30px; margin:8px -8px; transform:rotate(90deg); }
+ .sk-wire p:last-child::before { transform:rotate(-90deg); }
+}
+@media(max-width:600px) { .sk-paper { padding:34px 16px 24px; } .sk-src { padding-inline:12px; } }
+@media(max-width:950px) { .cover-category::after { width:76px; margin-left:12px; } }
+@media(max-width:600px) {
+ .article-cover::after { width:37px; height:34px; top:25px; right:0; }
+ .cover-category::after { display:none; }
+}
+@media(prefers-reduced-motion:reduce) {
+ .editorial-mark.mark-pending,.editorial-mark.mark-visible { background-size:100% .42em; transition:none; }
+ .title-mark.mark-pending,.title-mark.mark-visible { background-size:100% .23em; }
+ .section-title-mark.mark-pending::after,.section-title-mark.mark-visible::after { transform:rotate(-2deg); transition:none; }
+}
+@media print { .article-cover::after,.cover-category::after { display:none; } }
+
+/* Each chapter gets a small ink drawing in place of the title rule. */
+.section-title-mark { padding-bottom:0; }
+.section-title-mark::after { display:none; }
+.chapter h2 { display:flex; align-items:center; gap:18px; }
+.chapter-icon { display:block; flex:none; width:49px; height:49px; overflow:visible; color:var(--color-accent); stroke:currentColor; stroke-width:1.8; stroke-linecap:round; stroke-linejoin:round; transform:rotate(-4deg); }
+.chapter:nth-of-type(even) .chapter-icon { transform:rotate(3deg); }
+.chapter-icon .icon-detail { opacity:.55; }
+@media(max-width:600px) { .chapter h2 { gap:13px; }.chapter-icon { width:37px; height:37px; } }
+
+</style>
+
+<script>
+(function () {
+ var preferred;
+ try { preferred = localStorage.getItem('airbuild-blog-theme'); } catch (error) {}
+ document.documentElement.dataset.theme = preferred === 'dark' || preferred === 'light' ? preferred : (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+})();
+</script>
+</head>
+<body>
+
+<header class="site-header">
+	<a class="brand" href="https://air.build/" aria-label="AirBuild home">
+		<svg viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path id="mark" d="M6.2041 0C6.8321 0 7.14676 0 7.38672 0.12207C7.59781 0.229625 7.77035 0.401231 7.87793 0.612305C8.0002 0.852279 8 1.16675 8 1.79492V3.5H8.03223C8.27835 1.52695 9.96029 0 12 0C14.209 0.000132586 16 1.79099 16 4C16 6.03959 14.4729 7.72153 12.5 7.96777V8.03125C14.473 8.27743 16 9.96033 16 12C15.9999 14.2089 14.2089 15.9999 12 16C9.96037 16 8.27846 14.473 8.03223 12.5H7.96777C7.72153 14.4729 6.03959 16 4 16C1.79099 16 0.000132586 14.209 0 12C0 9.96025 1.5269 8.27733 3.5 8.03125V8H1.79492C1.16675 8 0.852279 8.0002 0.612305 7.87793C0.401231 7.77035 0.229625 7.59781 0.12207 7.38672C0 7.14676 0 6.8321 0 6.2041V1.79492C0 1.16675 -0.000202525 0.852279 0.12207 0.612305C0.22962 0.401322 0.401322 0.22962 0.612305 0.12207C0.852279 -0.000202571 1.16675 0 1.79492 0H6.2041ZM6.49609 5C5.97271 5 5.71072 4.99982 5.51074 5.10156C5.3348 5.19121 5.19121 5.3348 5.10156 5.51074C4.99983 5.71071 5 5.97274 5 6.49609V9.50391C5 10.0274 4.9997 10.2893 5.10156 10.4893C5.19121 10.6652 5.3348 10.8078 5.51074 10.8975C5.71075 10.9993 5.9725 11 6.49609 11H9.50391C10.0274 11 10.2893 10.9994 10.4893 10.8975C10.6651 10.8078 10.8078 10.665 10.8975 10.4893C10.9994 10.2893 11 10.0274 11 9.50391V6.49609C11 5.97251 10.9993 5.71075 10.8975 5.51074C10.8078 5.3348 10.6652 5.19121 10.4893 5.10156C10.2893 4.9997 10.0274 5 9.50391 5H6.49609Z"/></svg>
+		<span>AirBuild</span>
+	</a>
+	<a class="back" href="https://air.build/"><span>Back to AirBuild</span></a>
+<button class="theme-toggle" type="button" aria-label="Switch color theme" title="Switch color theme"><svg class="theme-moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 14.2A8.5 8.5 0 0 1 9.8 4 8.5 8.5 0 1 0 20 14.2Z"/></svg><svg class="theme-sun" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2m0 16v2M2 12h2m16 0h2M5 5l1.5 1.5m11 11L19 19M5 19l1.5-1.5m11-11L19 5"/></svg></button></header>
+
+<div class="page"><main><header class="article-cover"><p class="cover-category">AirBuild<br><span>Engineering</span><time class="cover-date" datetime="2026-09-11">September 11, 2026</time></p><h1 class="page-title" lang="en">The First App&nbsp;Store, Reimagined with <span class="editorial-mark title-mark">AI&nbsp;Coding</span>.</h1><div class="cover-divider"></div></header><article lang="en"><div class="reader-layout"><div class="article-content"><p>In 2008, the iPhone 3G and the first App Store introduced many people to mobile apps. We built AirBuild3G to give that phone <span class="editorial-mark">something new to do.</span> On an iPhone 3G or 3GS, you can describe a new app, work on its source with a coding model, and compile and run it on the same phone. The model runs on a service you choose. Your project files and the development tools stay on the phone.</p>
+<p>AirBuild3G itself is built with Xcode 27 on a Mac. The apps you create with it use a separate compiler, installed on the phone. Making both work took changes in four areas: device preparation, linking, HTTPS, and the phone's own toolchain. The sections below follow that work through to your first app.</p>
+<section class="chapter" id="device"><h2 tabindex="-1"><svg class="chapter-icon" viewBox="0 0 64 64" fill="none" aria-hidden="true" focusable="false"><path d="M19 7Q16 7 16 11L15 49Q15 53 20 53L39 54Q44 54 44 49L45 12Q45 8 40 8Z"/><path d="M24 13L36 13M20 19L40 20L39 43L20 42Z"/><circle cx="30" cy="48" r="2"/><path class="icon-detail" d="M7 18L10 21M50 17L55 14M51 27L57 28"/></svg><span class="section-title-mark">Preparing the Original Hardware</span></h2><p>The small display and physical Home button make the iPhone 3G immediately recognizable. Building for it again means respecting its original proportions and limits, down to the controls that made its apps feel familiar. AirBuild3G itself uses the UIKit controls available on iOS 4, including grouped settings tables and navigation-bar actions.</p><p>AirBuild3G runs on the iPhone 3G and 3GS. The 3G requires <span class="editorial-mark">armv6 binaries</span>; the 3GS uses <span class="editorial-mark">armv7</span>. Firmware decides which environment package each phone can install. Our reference armv6 device is an iPhone 3G running iOS 4.2.1 with <span class="editorial-mark">custom firmware</span>.</p><figure class="sk"><div class="sk-paper"><ol class="sk-steps"><li><strong>Prepare</strong><span>restore / activate</span></li><li><strong>Connect</strong><span>SSH + network</span></li><li><strong>Install</strong><span>app + environment package</span></li><li class="sk-goal"><strong>Environment</strong><span>Settings →&nbsp;Environment</span></li></ol></div><figcaption>Setup takes four steps: prepare the phone, connect to it, install AirBuild3G and the environment package, then tap Install in Settings → Environment.</figcaption></figure><p>Start with a phone that boots to its Home screen and accepts SSH connections from your Mac. It needs a working network connection and package manager to receive and install the Debian packages. Its hardware model and firmware version decide which packages to send, and its network address decides where. You also need a reliable USB cable and power.</p><p>Some older phones need extra steps for activation and system access. For supported hardware, use <span class="editorial-mark">Legacy iOS Kit</span> and follow its guidance for your phone's model and firmware. Back up the phone before you begin. AirBuild3G itself does not activate the phone.</p><p>AirBuild3G also needs <span class="editorial-mark">Substrate</span> for its TLS support. On a 3G, the build must include armv6: an armv7-only package cannot run there, whatever its version. A phone prepared with Legacy iOS Kit may already have a compatible build. If Substrate works, leave it in place.</p><p>Settings → Environment follows the same rule. It adds development tools and leaves a working package manager, SSH service, and other base components alone. Upgrading those components wholesale can install binaries the old system cannot run.</p></section><section class="chapter" id="refusals"><h2 tabindex="-1"><svg class="chapter-icon" viewBox="0 0 64 64" fill="none" aria-hidden="true" focusable="false"><path d="M9 14Q8 10 13 10L51 11Q55 11 54 16L53 40L10 39Z"/><path d="M10 40L5 49Q31 53 58 49L53 41M26 46L37 46"/><path d="M24 20L18 26L24 32M40 20L46 26L40 33M34 19L29 34"/></svg><span class="section-title-mark">Building with Xcode 27</span></h2><p>Xcode 27's compiler <span class="editorial-mark">still emits armv6 and armv7 code</span> and accepts an iOS 4.0 deployment target. Xcode itself ships only the iOS 27 SDK, so we compile against a legacy SDK's headers. Pass the SDK's path as <code>LEGACY_SDK</code> on the make command line, or export it. The scripts that build the environment packages read it too, and a value set only inside the Makefile never reaches them.</p><p>The linker is stricter. It rejects armv6 as a link target, refuses any deployment target below iOS 4.3, and reports the legacy SDK's libraries as built for an unknown platform. For those libraries, we <span class="editorial-mark">link against generated stubs</span> instead and keep the legacy SDK for headers.</p><figure class="sk"><div class="sk-paper"><ol class="sk-steps"><li><strong>Compiled</strong><span>clang</span><dl><dt>arch</dt><dd>armv6</dd><dt>min iOS</dt><dd>4.0</dd><dt>code</dt><dd>e92d40f0 …</dd></dl></li><li><strong>Linked</strong><span>relabel, then ld</span><dl><dt>arch</dt><dd><del>armv6</del><ins>armv7</ins></dd><dt>min iOS</dt><dd><del>4.0</del><ins>5.0</ins></dd><dt>code</dt><dd>e92d40f0 …</dd></dl></li><li class="sk-goal"><strong>Shipped</strong><span>relabel back, patch</span><dl><dt>arch</dt><dd><del>armv7</del><ins>armv6</ins></dd><dt>min iOS</dt><dd><del>5.0</del><ins>4.0</ins></dd><dt>code</dt><dd>e92d40f0 …</dd></dl><em class="sk-ok">make verify</em></li></ol></div><figcaption>Clang produces the armv6 instructions. Before and after the link, the build rewrites only metadata, then checks the result.</figcaption></figure><p>The build compiles both slices for iOS 4.0, links them for iOS 5.0, and then patches their minimum version back to 4.0. For armv6, it also relabels every object file as armv7 so the linker will take them, then relabels the linked slice back to armv6. <span class="editorial-mark">Relabeling changes metadata, not instructions.</span> The compiled code and the symbol stubs the linker adds must already run on armv6.</p><figure class="sk"><div class="sk-paper"><div class="sk-src"><span class="sk-file">tools/relabel_arch.py</span><pre><code>MH_MAGIC = <span class="n">0xFEEDFACE</span>
+<mark data-n="1">SUBTYPES = {<span class="s">"armv6"</span>: <span class="n">6</span>, <span class="s">"armv7"</span>: <span class="n">9</span>}</mark>
+
+<span class="k">def</span> <span class="f">main</span>():
+    <i>…</i>
+    path, want = sys.argv[<span class="n">1</span>], SUBTYPES[sys.argv[<span class="n">2</span>]]
+
+    <span class="k">with</span> <span class="f">open</span>(path, <span class="s">"rb"</span>) <span class="k">as</span> f:
+        buf = <span class="f">bytearray</span>(f.<span class="f">read</span>())
+
+    <span class="k">if</span> struct.<span class="f">unpack_from</span>(<span class="s">"&lt;I"</span>, buf, <span class="n">0</span>)[<span class="n">0</span>] != MH_MAGIC:
+        <i>…</i>
+
+    <mark data-n="2">struct.<span class="f">pack_into</span>(<span class="s">"&lt;i"</span>, buf, <span class="n">8</span>, want)</mark>
+    <span class="k">with</span> <span class="f">open</span>(path, <span class="s">"wb"</span>) <span class="k">as</span> f:
+        f.<span class="f">write</span>(buf)</code></pre></div><ol class="sk-notes"><li>Mach-O's cpusubtype for each architecture: 6 is armv6, 9 is armv7.</li><li>The whole relabel: four bytes at offset 8, the header's cpusubtype field. The instructions pass through untouched.</li></ol></div><figcaption>The build runs this script on every armv6 object before the link, and on the linked slice after it.</figcaption></figure><p>The build keeps <code>-no_pie</code> because iOS had no ASLR before 4.3. It also turns off Objective-C category merging, which would otherwise strip the Thumb bit from merged methods and crash AirBuild3G on a 3GS. <code>make verify</code> checks the architectures, the load commands, the armv6 instructions, and the Thumb bit on armv7 methods. A successful link proves none of this.</p><p>Run <code>make</code> to build AirBuild3G and its privileged helper. <code>make payload</code> downloads and verifies every pinned package into a local cache, and <code>make package</code> builds AirBuild3G's package and both environment packages from it, offline. Packaging needs <code>LEGACY_SDK</code> too, because each environment package carries an SDK archive for the phone.</p><p><code>make install-device DEVICE=root@&lt;ip&gt;</code> installs AirBuild3G and the iOS 4 environment package, refreshes the Home screen, and restarts the app. For a 3GS on iOS 5 or later, pass <code>ios6</code> as the third argument to <code>tools/deploy_device.sh</code> instead. The app runs as the <span class="editorial-mark">mobile</span> user, and a small helper beside it runs everything that needs root. The environment package is now on the phone; Settings → Environment installs the development tools it contains.</p></section><section class="chapter" id="network"><h2 tabindex="-1"><svg class="chapter-icon" viewBox="0 0 64 64" fill="none" aria-hidden="true" focusable="false"><circle cx="19" cy="39" r="9"/><circle cx="45" cy="19" r="8"/><path d="M26 34L38 24M17 48L16 55M10 55L23 55M42 10Q25 2 13 17M13 10L12 18L20 17"/><path class="icon-detail" d="M35 43Q47 44 53 34M49 33L54 33L55 39"/></svg><span class="section-title-mark">Connecting to a Model Service</span></h2><p>In Settings, you enter three values under Endpoint: Base URL, API Key, and Model. <span class="editorial-mark">Requests go directly from the phone to that endpoint.</span> We run no server in between, and there is no account or device registration. Your model service runs the model, bills for usage, and tells you what to enter. <span class="editorial-mark">If your phone was a gift from us, it connects to air.build instead.</span></p><p>Stock iOS 4 speaks only TLS 1.0 through SecureTransport, and a current endpoint may require TLS 1.2. We add TLS 1.2 with TLSFix, a Substrate tweak for CFNetwork.</p><p>The phone still has to verify the server's identity. Its old trust store cannot always build the certificate chain a current endpoint uses, and adding TLS 1.2 does not update that store. When a connection fails, treat encryption and certificate trust as separate problems.</p><p>AirBuild3G <span class="editorial-mark">validates certificates by default</span>. If a request fails, check the Base URL, API Key, Model, and certificate chain first. The Trust Any Certificate setting is an explicit exception. Turning it on removes a server-identity check and could expose your API key to anyone who can impersonate the endpoint. Leave it off unless the endpoint is on your own network. AirBuild3G reads the setting at every trust evaluation, so turning it off applies to the next request.</p><figure class="sk"><div class="sk-paper"><div class="sk-src"><span class="sk-file">src/ABLTrustAll.m</span><pre><code><span class="k">static</span> <span class="t">OSStatus</span> <span class="f">ABLSecTrustEvaluate</span>(<span class="t">SecTrustRef</span> trust, <span class="t">SecTrustResultType</span> *result) {
+	<i>…</i>
+	<mark data-n="1"><span class="t">OSStatus</span> status = <span class="f">ABLOriginalSecTrustEvaluate</span>(trust, result);</mark>
+	<mark data-n="2"><span class="k">if</span> (!<span class="f">ABLTrustAnyCertificate</span>()) {</mark>
+		<span class="k">return</span> status;
+	}
+	<span class="k">if</span> (result != <span class="n">NULL</span>) {
+		*result = <span class="n">kSecTrustResultUnspecified</span>;
+	}
+	<span class="k">return</span> <span class="n">errSecSuccess</span>;
+}</code></pre></div><ol class="sk-notes"><li>The phone's own evaluation runs first.</li><li>Trust Any Certificate is off by default, so that answer goes back unchanged. The setting is read from <code>NSUserDefaults</code> on every call.</li></ol></div><figcaption>The hook on SecTrustEvaluate returns the phone's own answer unless Trust Any Certificate is on.</figcaption></figure><p>Streaming a reply also has to fit the phone. AirBuild3G receives and decodes the stream on a background thread and passes only finished text to the interface. The transcript refreshes at an interval instead of remeasuring and scrolling for every token, which keeps layout work low while the reply arrives. A reply shows that the connection works. Compiling what the model writes still needs the environment on the phone.</p></section><section class="chapter" id="compiler"><h2 tabindex="-1"><svg class="chapter-icon" viewBox="0 0 64 64" fill="none" aria-hidden="true" focusable="false"><path d="M18 16L46 17L45 46L17 45Z"/><path d="M24 23L39 24L38 39L24 38ZM23 8L23 16M32 7L32 16M41 9L41 17M23 46L23 54M32 46L32 55M41 46L41 53M8 23L17 23M7 32L17 32M9 41L17 41M46 24L54 24M46 33L56 33M45 42L54 42"/></svg><span class="section-title-mark">Installing a Compiler the Phone Can Run</span></h2><p>Settings → Environment installs the compiler, SDK headers, link libraries, and signing tools from the environment package. The iOS 4 package carries GCC for armv6; the package for iOS 5 and later carries clang for armv7. Each phone installs only the one that matches its firmware.</p><p>Every package is pinned by download address and checksum, and installation uses those exact files instead of asking a repository for the latest versions. Packages already installed at the pinned version are skipped, so a second run of Environment finishes right away. Installed packages are then held, so Cydia stops offering upgrades that break the toolchain.</p><p>For the iPhone 3G, the environment uses the <span class="editorial-mark">2008 build of iphone-gcc 4.2</span>. The 2009 build reserves a gigabyte for precompiled headers, which pushes part of it beyond an armv6 phone's address space. Its compiler backends crash before they compile anything. Both builds identify as Apple build 5555, but only the 2008 one fits in that address space.</p><figure class="sk"><div class="sk-paper"><div class="sk-vm"><div class="sk-vm-top"><span>armv6 limit</span><code>0x30000000</code></div><p style="--end:6"><span><strong>2008 iphone-gcc</strong> · every segment under 6 MB</span><em class="sk-ok">runs</em></p><p style="--end:513"><span><strong>512 MB array</strong> · test binary</span><em class="sk-ok">runs</em></p><p class="sk-over" style="--end:769"><span><strong>768 MB array</strong> · test binary</span><em class="sk-bad">SIGBUS</em></p><p class="sk-over" style="--end:1030"><span><strong>2009 iphone-gcc</strong> · 1 GB precompiled-header arena</span><em class="sk-bad">SIGBUS</em></p><div class="sk-vm-axis" aria-hidden="true"><span style="--at:0">0</span><span style="--at:256">256 MB</span><span style="--at:512">512 MB</span><span style="--at:768">768 MB</span><span style="--at:1024">1 GB</span></div></div></div><figcaption>The 2008 compiler fits below the armv6 limit; the 2009 build fails before main because its reserved arena crosses it. Test arrays of 512 MB and 768 MB land on either side of the limit.</figcaption></figure><p>The SDK headers need changes too: this GCC cannot parse their block declarations. Before packaging the iOS 4 headers, we remove those declarations, along with every declaration that depends on a removed type. The clang package keeps Apple's headers unchanged, because clang supports blocks. Each package also ships a signing tool that can sign what its compiler produces.</p><p>The phone keeps its system frameworks in the dyld shared cache, so the framework directories hold no library files for a linker to read. We supply generated stubs that carry <span class="editorial-mark">exported symbols and real library names</span>. The linker resolves each reference against a stub and records which library it came from; at launch, dyld binds it to the real implementation in the shared cache. Because the stubs carry real symbol names, leaving out a framework fails the link instead of crashing the app at launch.</p><p>The environment also sets the include paths, points gcc and cc at the installed compiler, and exports link flags that pull in the Objective-C runtime and CoreFoundation. The bundled Makefile reads those settings, so a new project needs no toolchain setup of its own. From then on, your apps build on the phone itself.</p><figure class="sk"><div class="sk-paper"><div class="sk-src"><span class="sk-file">template/Makefile</span><pre><code><span class="f">build/%.o</span>: src/%.m | build
+	@echo <span class="s">"  compile <span class="v">$&lt;</span>"</span>
+	@gcc -c <mark data-n="1"><span class="v">$(IOS_CFLAGS)</span></mark> <span class="v">$&lt;</span> -o <span class="v">$@</span>
+
+<i># Compiling and linking take different flags, so they are separate steps.
+# A missing -framework is a link error here, which is the point: link stubs
+# with real symbol names are what make it one instead of a crash at launch.</i>
+<span class="f">build/<span class="v">$(NAME)</span></span>: <span class="v">$(OBJECTS)</span>
+	@echo <span class="s">"  link    <span class="v">$@</span>"</span>
+	@gcc <span class="v">$(OBJECTS)</span> -o <span class="v">$@</span> <mark><span class="v">$(IOS_LDFLAGS)</span></mark> $(<span class="f">addprefix</span> -framework ,<span class="v">$(FRAMEWORKS)</span>)
+	<i>@# Unsigned is SIGKILL at launch, not a warning.</i>
+	<mark data-n="2">@ldid -S <span class="v">$@</span></mark></code></pre></div><ol class="sk-notes"><li><code>IOS_CFLAGS</code> and <code>IOS_LDFLAGS</code> come from <code>/etc/profile.d/airbuild.sh</code>, which the environment installs, so no project names an SDK or compiler path.</li><li>The binary is signed on the phone too. Unsigned, it is killed at launch.</li></ol></div><figcaption>The Makefile a new project starts from. The phone compiles, links, and signs with only the toolchain it installed.</figcaption></figure></section><section class="chapter" id="tools"><h2 tabindex="-1"><svg class="chapter-icon" viewBox="0 0 64 64" fill="none" aria-hidden="true" focusable="false"><path d="M11 10L51 11Q55 11 54 16L53 49Q53 53 48 53L12 52Q8 52 9 47L9 15Q9 10 11 10ZM10 21L53 22"/><path d="M16 16L17 16M23 16L24 16M30 16L31 16M20 33L32 33M20 40L27 40"/><path class="icon-detail" d="M38 32L45 38L37 44Z"/></svg><span class="section-title-mark">Creating and Running Your First App</span></h2><p>A new project starts from the <span class="editorial-mark">bundled UIKit template</span>. AirBuild3G copies it into the project directory and puts its files in the model's context. The model starts from a project that already builds, so your first request can describe the app instead of asking for a Makefile.</p><p>A good first app is a button that increments a number on screen. It is small enough to read in full, yet it exercises editing, compiling, packaging, and running on the phone. In your request, name iOS 4 as the target and ask the model to build and install the app. Its interface code must stick to APIs the phone's iOS implements. A declaration in the headers does not mean the API exists at run time.</p><p>The model has four tools. Execute runs commands in the project directory. EditFile writes a complete file. PatchFile replaces an exact passage. CheckBuild runs make with the environment's settings loaded and returns the end of its output. <span class="editorial-mark">Tool results return to the model</span>, which can continue working or revise a failed change. Inference stays at your model service throughout.</p><figure class="sk"><div class="sk-paper"><div class="sk-loop"><div class="sk-card"><small>Remote</small><strong>Model</strong><span>your endpoint</span><svg class="sk-icon" viewBox="0 0 60 52" aria-hidden="true" focusable="false"><path d="M29 5C28 20 25 24 9 26C24 28 28 32 30 47C32 33 35 28 51 26C35 24 32 20 29 5Z"/><path class="icon-detail" d="M47 4L46 13M42 8L52 9M5 9L10 14"/></svg></div><div class="sk-wire"><p>tool call</p><p>tool result</p></div><div class="sk-card sk-goal"><small>On the phone</small><strong>Tools</strong><span><code>Execute</code> <code>EditFile</code> <code>PatchFile</code> <code>CheckBuild</code></span><svg class="sk-icon" viewBox="0 0 64 64" aria-hidden="true" focusable="false"><path d="M19 7Q16 7 16 11L15 49Q15 53 20 53L39 54Q44 54 44 49L45 12Q45 8 40 8Z"/><path d="M24 13L36 13M20 19L40 20L39 43L20 42Z"/><circle cx="30" cy="48" r="2"/></svg></div></div><p class="sk-foot">The loop repeats until the model replies without a tool call, you tap Stop, or 16 rounds have run.</p></div><figcaption>One tool round. The model runs remotely and its tools run on the phone; each result goes into the next request when the loop continues.</figcaption></figure><p>Once the new app is installed, open it on the phone. For the counter, tapping the button and watching the number change checks exactly what you asked for. Later requests can change the layout or add another interaction, and the model builds on the existing files and earlier tool results.</p><p>AirBuild3G keeps each project and its conversation on the phone, saved after every tool round. It also remembers which project is open, because leaving the app or running low on memory can end its process. When you reopen AirBuild3G, it returns to that project, with its conversation and files. Your next message continues from the saved conversation, and the source is still there for the next edit and build.</p><p>On this screen, even that counter connects the apps you once used with the ones you can now make.</p></section><section class="chapter" id="looking-ahead"><h2 tabindex="-1"><svg class="chapter-icon" viewBox="0 0 64 64" fill="none" aria-hidden="true" focusable="false"><path d="M13 11L49 8L54 49L17 54Z"/><path d="M19 17L44 15L47 39L22 42Z"/><path d="M23 34L29 27L35 32L40 25L47 34M26 47L40 45"/><circle cx="28" cy="23" r="2"/><path class="icon-detail" d="M7 5L9 9M53 4L56 8M57 16L61 15"/></svg><span class="section-title-mark">Something New on a Familiar Screen</span></h2><p>The iPhone 3G arrived in 2008, <span class="editorial-mark">just as the App Store opened</span>. A new app could turn it into an instrument, a notebook, or a game you carried everywhere. The Home button brought you back to a grid of icons, each one an invitation to try something else.</p><p>On that phone today, you feel how long ago 2008 was. The display has not grown. The processor has not become faster. The original interface still asks apps to make careful use of a few controls and a little space. Working within those limits, you notice details that are easy to overlook on a newer device: whether a button responds, whether a conversation scrolls smoothly, whether the next screen appears when it should.</p><p>AirBuild3G gives that familiar screen one more job. A current model helps you write an app, and a compiler from the phone's own era builds it. The old icons can remain where they are.</p><p><span class="editorial-mark">Alongside them, there is room for an app that did not exist before.</span></p></section>
+<footer class="article-end"><a href="https://github.com/yellowplushq/AirBuild3G">AirBuild3G on GitHub</a><p>With love from the AirBuild team<time datetime="2026-09-11">6,637 days after the App Store opened</time></p></footer></div><aside class="reading-sidebar"><nav aria-label="Contents"><p class="contents-heading">Contents</p><ol><li><a href="#device" data-chapter-link="device">Preparing the Original Hardware</a></li><li><a href="#refusals" data-chapter-link="refusals">Building with Xcode 27</a></li><li><a href="#network" data-chapter-link="network">Connecting to a Model Service</a></li><li><a href="#compiler" data-chapter-link="compiler">Installing a Compiler the Phone Can Run</a></li><li><a href="#tools" data-chapter-link="tools">Creating and Running Your First App</a></li><li><a href="#looking-ahead" data-chapter-link="looking-ahead">Something New on a Familiar Screen</a></li></ol></nav><div class="reading-progress" role="progressbar" aria-orientation="vertical" aria-label="Article reading progress" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0"><span class="reading-progress-fill"></span></div></aside></div></article></main></div>
+
+<script>
+(function () {
+ var article = document.querySelector('article');
+ var chapters = Array.from(article.querySelectorAll('.chapter'));
+ var links = Array.from(article.querySelectorAll('[data-chapter-link]'));
+ var content = article.querySelector('.article-content');
+ var bar = article.querySelector('.reading-progress');
+ var aliases = {'install':'refusals','thumb-bug':'refusals','result':'tools'};
+ function syncContents() {
+  var current = null;
+  chapters.forEach(function (chapter) {
+   if (chapter.getBoundingClientRect().top <= window.innerHeight * .3) current = chapter;
+  });
+  links.forEach(function (link) {
+   if (current && link.dataset.chapterLink === current.id) link.setAttribute('aria-current','location');
+   else link.removeAttribute('aria-current');
+  });
+  var bounds = content.getBoundingClientRect();
+  var distance = bounds.height - window.innerHeight + 40;
+  var value = distance > 0 ? Math.max(0,Math.min(1,(40-bounds.top)/distance)) : (bounds.top < window.innerHeight ? 1 : 0);
+  bar.style.setProperty('--reading-progress',String(value));
+  bar.setAttribute('aria-valuenow',String(Math.round(value*100)));
+ }
+ function route() {
+  var key;
+  try { key = decodeURIComponent(location.hash.slice(1)).replace(/^zh-/,''); } catch (error) { key = ''; }
+  var target = document.getElementById(aliases[key] || key);
+  if (target && target.matches('.chapter')) {
+   target.scrollIntoView({block:'start'});
+   target.querySelector('h2').focus({preventScroll:true});
+  }
+  syncContents();
+ }
+ links.forEach(function (link) {
+  link.addEventListener('click',function (event) {
+   event.preventDefault();
+   var url = new URL(location.href);
+   url.hash = link.dataset.chapterLink;
+   try { history.pushState(null,'',url); } catch (error) { location.hash = url.hash; }
+   route();
+  });
+ });
+ var pending = false;
+ function scheduleProgress() {
+  if (pending) return;
+  pending = true;
+  requestAnimationFrame(function () { pending = false; syncContents(); });
+ }
+ window.addEventListener('scroll',scheduleProgress,{passive:true});
+ window.addEventListener('resize',scheduleProgress);
+ window.addEventListener('hashchange',route);
+ window.addEventListener('popstate',route);
+ route();
+})();
+(function () {
+ if (!('IntersectionObserver' in window) || window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+ var observer = new IntersectionObserver(function (entries) {
+  entries.forEach(function (entry) {
+   if (!entry.isIntersecting) return;
+   entry.target.classList.add('mark-visible');
+   observer.unobserve(entry.target);
+  });
+ }, {threshold:.35});
+ document.querySelectorAll('.editorial-mark,.sk').forEach(function (mark) {
+  mark.classList.add('mark-pending');
+  observer.observe(mark);
+ });
+})();
+
+</script>
+
+
+<script>
+(function () {
+ var button = document.querySelector('.theme-toggle');
+ var systemTheme = window.matchMedia('(prefers-color-scheme: dark)');
+ function syncThemeLabel() {
+  var dark = document.documentElement.dataset.theme === 'dark';
+  button.setAttribute('aria-label',dark ? 'Switch to light mode' : 'Switch to dark mode');
+  button.title = dark ? 'Switch to light mode' : 'Switch to dark mode';
+ }
+ button.addEventListener('click',function () {
+  var next = document.documentElement.dataset.theme === 'dark' ? 'light' : 'dark';
+  document.documentElement.dataset.theme = next;
+  try { localStorage.setItem('airbuild-blog-theme',next); } catch (error) {}
+  syncThemeLabel();
+ });
+ function followSystem(event) {
+  var preferred;
+  try { preferred = localStorage.getItem('airbuild-blog-theme'); } catch (error) {}
+  if (preferred === 'light' || preferred === 'dark') return;
+  document.documentElement.dataset.theme = event.matches ? 'dark' : 'light';
+  syncThemeLabel();
+ }
+ if (systemTheme.addEventListener) systemTheme.addEventListener('change',followSystem);
+ syncThemeLabel();
+})();
+</script>
+</body>
+</html>

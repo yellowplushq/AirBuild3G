@@ -1,0 +1,9 @@
+Package: com.apple.airbuild.oss
+Name: AirBuild
+Version: 1.0.0
+Architecture: iphoneos-arm
+Description: A coding agent that runs on an iPhone 3G. Bring your own API key: open Settings and set a base URL, a key and a model.
+Maintainer: AirBuild
+Author: AirBuild
+Section: Applications
+Depends: firmware (>= 4.0)
